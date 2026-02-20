@@ -1,0 +1,32 @@
+@startuml WG_Expense_Tracker_Deployment
+
+node "Docker Swarm" {
+
+    node "frontend-container" <<Docker Container>> {
+        component "Frontend App" as frontend
+    }
+
+    node "backend-container" <<Docker Container>> {
+        component "FastAPI App" as fastapi
+    }
+
+    node "db-container" <<Docker Container>> {
+        database "MariaDB" as mariadb
+    }
+
+}
+
+node "user-service-container" <<Docker Container>> {
+    component "User Microservice" as userservice
+}
+
+note bottom of userservice : External Microservice Platform
+
+actor "User" as user
+
+user --> frontend : HTTPS
+frontend --> fastapi : REST API\n(HTTP/JSON)
+fastapi --> mariadb : SQL\n(TCP 3306)
+fastapi -right-> userservice : REST API\n(HTTP/JSON)
+
+@enduml
