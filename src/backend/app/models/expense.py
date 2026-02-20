@@ -2,7 +2,7 @@ from datetime import datetime
 from typing import List
 from pydantic import BaseModel
 
-from expense_split import ExpenseSplit
+from app.models.expense_split import ExpenseSplit
 
 class Expense(BaseModel):
     id: int
