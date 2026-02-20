@@ -1,5 +1,11 @@
 # sharefin
-A microservice to handle finances for closed groups of people
+A microservice to handle finances as an extension for the [PLACEHOLDER] application.
+
+## Installation
+Todo
+
+## Usage
+Todo
 
 ## Deployment
 
@@ -31,4 +37,25 @@ graph LR
     frontend -->|"REST API (HTTP/JSON)"| fastapi
     fastapi -->|"SQL (TCP 3306)"| mariadb
     fastapi -->|"REST API (HTTP/JSON)"| userservice
+```
+
+## Data Model
+
+This application will only store expenses, which are represented by the following data model:
+
+```mermaid
+erDiagram
+    EXPENSE {
+        int id PK
+        float amount
+        datetime date
+        varchar description
+        int paid_by_id FK
+    }
+    EXPENSE_SPLIT {
+        int expense_id PK, FK
+        int person_id FK
+    }
+
+    EXPENSE ||--|{ EXPENSE_SPLIT : "split"
 ```
