@@ -1,0 +1,10 @@
+services:
+  app:
+    container_name: sharefin-backend-dev
+    build:
+      context: ../../
+      dockerfile: docker/dev/Dockerfile
+    environment:
+      - DEBUG=0
+    stdin_open: true
+    tty: true
