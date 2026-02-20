@@ -5,6 +5,7 @@
 <main class="landing">
     <h1>{{ title }}</h1>
     <p>{{ message }}</p>
+    {% include "partials/add_expense_form.html" %}
     {% for expense in expenses %}
         {{ expense_item(expense) }}
     {% endfor %}

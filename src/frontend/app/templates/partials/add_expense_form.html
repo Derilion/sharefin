@@ -1,0 +1,23 @@
+<form action="/expense" method="post">
+    <div>
+        <label for="amount">Betrag</label>
+        <input type="number" id="amount" name="amount" step="0.01" required>
+    </div>
+    <div>
+        <label for="date">Datum</label>
+        <input type="datetime-local" id="date" name="date" required>
+    </div>
+    <div>
+        <label for="description">Beschreibung</label>
+        <input type="text" id="description" name="description" required>
+    </div>
+    <div>
+        <label for="paid_by_id">Bezahlt von (ID)</label>
+        <input type="number" id="paid_by_id" name="paid_by_id" required>
+    </div>
+    <div>
+        <label>Splits (Person IDs, kommagetrennt)</label>
+        <input type="text" id="splits" name="splits" placeholder="1,2,3" required>
+    </div>
+    <button type="submit">Ausgabe hinzufügen</button>
+</form>
