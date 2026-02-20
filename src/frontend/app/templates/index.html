@@ -1,8 +1,12 @@
 {% extends "base.html" %}
+{% from "partials/list_item_expense.html" import expense_item %}
 
 {% block content %}
 <main class="landing">
     <h1>{{ title }}</h1>
     <p>{{ message }}</p>
+    {% for expense in expenses %}
+        {{ expense_item(expense) }}
+    {% endfor %}
 </main>
 {% endblock %}

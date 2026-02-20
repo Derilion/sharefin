@@ -1,0 +1,7 @@
+{% macro expense_item(expense) %}
+<div class="expense-item">
+    <span class="expense-description">{{ expense.description }}</span>
+    <span class="expense-amount">{{ expense.amount }}</span>
+    <span class="expense-payer">Paid by {{ expense.paid_by_id }}</span>
+</div>
+{% endmacro %}
